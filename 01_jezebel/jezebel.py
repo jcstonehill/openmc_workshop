@@ -10,35 +10,37 @@ import openmc
 
 ### MATERIALS ###
 # Create material
-
+# TODO
 
 # Add plutonium to material.
 # Nuclide abundances are specified.
-
+# TODO
 
 # Add gallium to material. Nuclide abundances are assumed to be natural
 # abundance, so we can use add_element() instead of adding nuclides
 # individually.
-
+# TODO
 
 # Density is set as the sum of constituents
-
+# TODO
 
 # Create materials object and export it.
-
+# TODO
 
 ### GEOMETRY ###
 # Define a single cell, a sphere, filled with plutonium alloyed with gallium.
+# TODO
 
 # Create geometry object and export it.
-
+# TODO
 
 ### SETTINGS ###
-
+# TODO
 
 ### EXECUTION ###
 # Run the simulation
-
+# TODO
 
 ### POST PROCESSING ###
 # Get the resulting k-effective value
+# TODO
