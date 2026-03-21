@@ -303,29 +303,16 @@ def generate_model(cd_angle, T_fuel, T_prop, rho_prop):
     tallies.append(tally)
 
     # A very fine x-y mesh for other tallies
-    mesh = openmc.RegularMesh()
-    mesh.dimension = [1000, 1000]
-    mesh.lower_left = [-65, -65]
-    mesh.upper_right = [65, 65]
-    mesh_filter = openmc.MeshFilter(mesh)
+    # TODO
 
     # Total heating x-y
-    tally = openmc.Tally(name="heating_xs")
-    tally.filters = [mesh_filter]
-    tally.scores = ["heating"]
-    tallies.append(tally)
+    # TODO
 
     # Thermal flux x-y
-    tally = openmc.Tally(name="thermal_flux_xs")
-    tally.filters = [mesh_filter, openmc.EnergyFilter([1e-5, 0.5])]
-    tally.scores = ["flux"]
-    tallies.append(tally)
+    # TODO
 
     # Fast Flux x-y
-    tally = openmc.Tally(name="fast_flux_xs")
-    tally.filters = [mesh_filter, openmc.EnergyFilter([0.5, 10e6])]
-    tally.scores = ["flux"]
-    tallies.append(tally)
+    # TODO
 
     # Now create settings
     settings = openmc.Settings()
