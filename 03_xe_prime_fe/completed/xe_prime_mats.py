@@ -324,7 +324,7 @@ fe_loading_codes = {
 
 plotting_colors = {
     prop_mat: (30, 100, 100),
-    code99: (200, 200, 120),
+    code99: (100, 0, 0),
     code89: (100, 200, 120),
     code79: (100, 200, 200),
     code69: (100, 150, 200),
