@@ -39,7 +39,6 @@ borated_water.add_element("O", 2.4e-2)
 
 # Collect the materials together and export to XML
 materials = openmc.Materials([uo2, helium, zircaloy, borated_water])
-materials.export_to_xml()
 
 
 ### GEOMETRY ###
@@ -104,16 +103,15 @@ with openmc.StatePoint(f"statepoint.{settings.batches}.h5") as sp:
     t: openmc.Tally = sp.get_tally(name="Flux spectrum")
 
     # Get the energies from the energy filter
-    energy_filter = t.filters[0]
-    energies = energy_filter.bins[:, 0]
+    energy_filter: openmc.EnergyFilter = t.filters[0]
 
     # Get the flux values
-    mean = t.get_values(value="mean").ravel()
-    uncertainty = t.get_values(value="std_dev").ravel()
+    mean = t.get_values(value="mean").ravel() / np.diff(energies)
+    uncertainty = t.get_values(value="std_dev").ravel() / np.diff(energies)
 
 # Plot flux spectrum
 fix, ax = plt.subplots()
-ax.loglog(energies, mean, drawstyle="steps-post")
+ax.loglog(energy_filter.bins[:, 0], mean, drawstyle="steps-post")
 ax.set_xlabel("Energy [eV]")
 ax.set_ylabel("Flux")
 ax.grid(True, which="both")
